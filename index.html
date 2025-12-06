@@ -89,13 +89,52 @@
   <main class="main">
 
 <section id="hero" class="hero section dark-background" style="height: 55vh; overflow: hidden;">
-  
-  <img 
-    src="assets/img/hero-bg.jpg" 
-    alt="" 
-    data-aos="fade-in" 
-    style="height: 100%; width: 100%; object-fit: cover; object-position: center;"
-  >
+<!-- REPLACE your existing <section id="hero"> ... </section> with this block -->
+<style>
+  /* Inline override to make hero background sane and keep content on top */
+  #hero {
+    height: 50vh !important;                /* change to 40vh/55vh if you prefer */
+    max-height: 600px !important;
+    position: relative !important;
+    overflow: hidden !important;
+
+    /* use the hero image as a background to prevent layout issues */
+    background-image: url('assets/img/hero-bg.jpg') !important;
+    background-size: cover !important;
+    background-position: center right !important; /* tweak to focus on face */
+    background-repeat: no-repeat !important;
+  }
+
+  /* dim background slightly so white text pops */
+  #hero::after {
+    content: "" ;
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.25); /* adjust alpha to taste */
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* put hero text/content above the overlay */
+  #hero .container {
+    position: relative;
+    z-index: 2;
+    padding-top: 3rem; /* nudge text down if needed */
+  }
+
+  /* hide the original <img> element so it doesn't duplicate or resize layout */
+  #hero > img {
+    display: none !important;
+  }
+</style>
+
+<section id="hero" class="hero section dark-background">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <h2>Kashish Rajput</h2>
+    <p>I'm <span class="typed" data-typed-items="Software Developer, Full-Stack Developer, AI/ML Engineer, Researcher">Software Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+  </div>
+</section>
+
 
     <!-- About Section -->
     <section id="about" class="about section">
