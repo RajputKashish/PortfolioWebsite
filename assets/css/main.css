@@ -51,6 +51,23 @@
   --surface-color: #151f2b;
   --contrast-color: #ffffff;
 }
+/* Reduce hero section height */
+#hero {
+  height: 70vh !important;  /* Reduce from full screen to 70% of viewport */
+  max-height: 600px;        /* Optional – prevents very large screens from stretching */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Resize background image */
+#hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* Ensures proper cropping */
+  object-position: center; /* Adjusts visible area */
+  opacity: 0.95;           /* Optional – makes text pop */
+}
+
 
 /* Smooth scroll */
 :root {
